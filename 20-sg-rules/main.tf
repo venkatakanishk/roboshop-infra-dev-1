@@ -62,3 +62,19 @@ resource "aws_security_group_rule" "backendalb_bastion" {
   source_security_group_id = local.bastion_sg_id
   security_group_id = local.backendalb_sg_id
 }
+resource "aws_security_group_rule" "catalogue_bastion" {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  source_security_group_id = local.bastion_sg_id
+  security_group_id = local.catalogue_sg_id
+}
+resource "aws_security_group_rule" "catalogue_backend_alb" {
+  type              = "ingress"
+  from_port         = 8080
+  to_port           = 8080
+  protocol          = "tcp"
+  source_security_group_id = local.catalogue_sg_id
+  security_group_id = local.backendalb_sg_id
+}
