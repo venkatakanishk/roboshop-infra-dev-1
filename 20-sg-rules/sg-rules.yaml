@@ -12,7 +12,11 @@ mongodb:
   port: 27017
   src: catalogue
   dest: mongodb
-- name: mongodb bastion #mongodb accepting connection from user
+- name: mongodb user #mongodb accepting connection from user
   port: 27017
   src: user
   dest: mongodb
+- name: bastion backend_alb #backend_alb accepting connection from bastion
+  port: 80
+  src: bastion
+  dest: backend_alb

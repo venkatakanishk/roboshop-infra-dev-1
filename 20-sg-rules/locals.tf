@@ -7,4 +7,6 @@ locals {
     user_sg_id = data.aws_ssm_parameter.user_sg_id.value
     mysql_sg_id = data.aws_ssm_parameter.mysql_sg_id.value
     rabbitmq_sg_id = data.aws_ssm_parameter.rabbitmq_sg_id.value
+    backendalb_sg_id = data.aws_ssm_parameter.backendalb_sg_id.value
+
 }
